@@ -91,14 +91,14 @@ public class Branch {
         branchIncome(in.nextInt());
     }
 
-   public static void income(){
-       for (Branch branch : branches) {
-           branch.income = 0.0;
-           for (int i = 0; i < Consignment.getConsignments().size(); i++) {
-               if (Consignment.getConsignments().get(i).getBranch().equals(branch))
-                   branch.income += Consignment.getConsignments().get(i).getPrice();
-           }
-       }
+    public static void income(){
+        for (Branch branch : branches) {
+            branch.income = 0.0;
+            for (int i = 0; i < Consignment.getConsignments().size(); i++) {
+                if (Consignment.getConsignments().get(i).getBranch().equals(branch))
+                    branch.income += Consignment.getConsignments().get(i).getPrice();
+            }
+        }
 
     }
 
@@ -115,8 +115,8 @@ public class Branch {
 
     public static void numberOfConsignments(int id) {
         if (id<=branches.size() && id!=0) {
-           numberOfConsignment();
-            System.out.println("Number Of " + branches.get(id-1) + "Consignments : " + branches.get(id-1).numberOfConsignments);
+            numberOfConsignment();
+            System.out.println( branches.get(id-1) + "\n**** Number Of Consignments : " + branches.get(id-1).numberOfConsignments+" ****");
             helpNumber();
         }
         if (id>branches.size()) {
@@ -125,7 +125,7 @@ public class Branch {
 
         }
         if(id==0)
-        Menu.statisticsOfBranchesMenu();
+            Menu.statisticsOfBranchesMenu();
 
     }
     public static void helpNumber(){
@@ -154,7 +154,7 @@ public class Branch {
 
     public static void compareToAllBranches(int id){
         if (id!=0 && id<=branches.size()){
-        Branch temp=branches.get(id-1);
+            Branch temp=branches.get(id-1);
             income();
             numberOfConsignment();
             for (Branch branch : branches) {
@@ -180,7 +180,7 @@ public class Branch {
             helpCompareTo();
         }
         if (id==0)
-        Menu.statisticsOfBranchesMenu();
+            Menu.statisticsOfBranchesMenu();
     }
 
     public static void helpCompareTo(){
@@ -188,7 +188,7 @@ public class Branch {
         System.out.println("Choose A Branch: ");
         Menu.branchesMenu();
         System.out.println("0.Choose A Statistics Way ");
-       compareToAllBranches(in.nextInt());
+        compareToAllBranches(in.nextInt());
     }
 
     @Override
